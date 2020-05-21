@@ -87,8 +87,7 @@ class HtmlFormController(http.Controller):
             html_form.captcha_secret_key = values['client_secret']
 
         html_string = ""
-        html_string += "<script src=\"https://www.google.com/recaptcha/api.js\" async=\"async\" defer=\"defer\"/>\n"
-        html_string += "<div class=\"g-recaptcha\" data-sitekey=\"" + str(html_form.captcha_client_key) + "\"></div>"
+        html_string += "<div class=\"g-recaptcha\" data-sitekey=\"" + str(html_form.captcha_client_key) + "\" data-callback=\"recaptchaCallback\" ></div>"
 
         return {'html_string': html_string}
 
@@ -428,8 +427,7 @@ class HtmlFormController(http.Controller):
 
         if html_form.captcha:
             form_string += "<div class=\"html_form_captcha col-md-12 form-group\" data-captcha-id=\"" + str(html_form.captcha.id) + "\">\n"
-            form_string += "  <script src=\"https://www.google.com/recaptcha/api.js\" async=\"async\" defer=\"defer\"/>\n"
-            form_string += "  <div class=\"g-recaptcha\" data-sitekey=\"" + str(html_form.captcha_client_key) + "\"></div>\n"
+            form_string += "  <div class=\"g-recaptcha\" data-sitekey=\"" + str(html_form.captcha_client_key) + "\" data-callback=\"recaptchaCallback\" ></div>\n"
             form_string += "</div>\n"
 
         form_string += "      </div>\n"

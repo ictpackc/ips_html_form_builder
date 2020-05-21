@@ -19,6 +19,15 @@
                 <link rel="stylesheet" href="/ips_html_form_builder/static/src/css/form.css"/>
                 <script type="text/javascript" src="/ips_html_form_builder/static/src/js/html.form.builder.js" />
             </xpath>
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                <script>
+                    function recaptchaCallback() {
+                    $('#submitBtn').removeAttr('disabled');
+                    console.log("Checkbox checked..!")
+                    };
+                </script>
+            </xpath>
         </template>
 
         <template id="website_form_builder_options" name="Form Builder Options" inherit_id="website.snippet_options">
